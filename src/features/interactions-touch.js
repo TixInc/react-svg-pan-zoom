@@ -49,12 +49,13 @@ export function onTouchEnd(event, ViewerDOM, tool, value, props) {
   }
 
   let nextValue = shouldResetPinchPointDistance(event, value, props) ? set(value, { pinchPointDistance: null }) : value;
+  return nextValue
+  
+  // if (event.touches.length > 0) {
+  //   return nextValue;
+  // }
 
-  if (event.touches.length > 0) {
-    return nextValue;
-  }
-
-  return onSingleTouch(event, ViewerDOM, tool, nextValue, props, onMouseUp);
+  // return onSingleTouch(event, ViewerDOM, tool, nextValue, props, onMouseUp);
 }
 
 export function onTouchCancel(event, ViewerDOM, tool, value, props) {
