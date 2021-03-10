@@ -297,7 +297,10 @@ export default class ReactSVGPanZoom extends React.Component {
     const touchAction = (this.props.detectPinchGesture || [TOOL_PAN, TOOL_AUTO].indexOf(this.getTool()) !== -1) ? 'none' : undefined
 
     const style = {display: 'block', cursor, touchAction};
-
+    if (props.includeSvgBorder) {
+      style.border = '1px solid #999999'
+    }
+    
     return (
       <div
         style={{position: "relative", width: value.viewerWidth, height: value.viewerHeight, ...props.style}}
